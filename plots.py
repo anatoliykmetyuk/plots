@@ -5,12 +5,12 @@ from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure
 from ipywidgets import interact
 
-def new_plot():
+def new_plot(x_range=[-2*np.pi, 2*np.pi], y_range=[-2.5, 2.5]):
   source = ColumnDataSource(data=dict(x=[], y=[]))
 
   plot = figure(plot_height=400, plot_width=400, title="Plot",
                 tools="crosshair,pan,reset,save,wheel_zoom",
-                x_range=[0, 4*np.pi], y_range=[-2.5, 2.5])
+                x_range=x_range, y_range=y_range)
 
   plot.line('x', 'y', source=source, line_width=3, line_alpha=0.6)
 
